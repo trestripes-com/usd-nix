@@ -26,8 +26,9 @@
 
       packages = forAllSystems (system: let
         pkgs = nixpkgsFor.${system};
-      in {
+      in rec {
         usd = pkgs.callPackage ./usd.nix { };
+        default = usd;
       });
     };
 }
